@@ -1,0 +1,2 @@
+[console_scripts]
+birthday_reminder = birthday_reminder.cli:main
