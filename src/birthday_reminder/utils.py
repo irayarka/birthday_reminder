@@ -1,5 +1,6 @@
 """A file for utilities"""
 
+import os
 from datetime import datetime
 
 from birthday_reminder.email_service import EmailService
@@ -29,8 +30,11 @@ def birthday_checker(data):
 def send_multiple_reminders(send_to, birthdays):
     """Sends reminders about multiple birthdays to multiple receivers"""
 
-    mail_service = EmailService()
+    login = os.getenv("EMAIL_LOGIN")
+    password = os.getenv("EMAIL_PASSWORD")
+
+    email_service = EmailService(login, password)
 
     for person in send_to:
         for birthday in birthdays:
-            mail_service.send(person, birthday)
+            email_service.send(person, birthday)
