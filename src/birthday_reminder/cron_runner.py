@@ -2,13 +2,14 @@
 
 import logging
 import os
+
 from crontab import CronTab
 
 logging.basicConfig()
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-cron = CronTab(user=os.environ.get('USER', os.environ.get('USERNAME')))
+cron = CronTab(user=os.environ.get("USER", os.environ.get("USERNAME")))
 
 
 def get_cron_job():
