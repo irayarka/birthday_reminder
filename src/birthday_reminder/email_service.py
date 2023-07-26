@@ -11,7 +11,7 @@ logger.setLevel(logging.INFO)
 class EmailService:
     """A service for email manipulation"""
 
-    def __init__(self):
+    def __init__(self, login, password):
 
         self._host = "sandbox.smtp.mailtrap.io"
         self._port = 2525
@@ -19,8 +19,8 @@ class EmailService:
 
         self._server = smtplib.SMTP(self._host, self._port)
 
-        self.__login = "6605aa5f117771"
-        self.__password = "9fbb5fe172a83e"
+        self.__login = login
+        self.__password = password
 
         self._body_template = """
         Hi {name},
